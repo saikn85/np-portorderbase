@@ -1,13 +1,8 @@
 namespace NP.WKR.PortOrderReader
 {
-    public class GeographicPortWorker : BackgroundService
+    public class GeographicPortWorker(ILogger<GeographicPortWorker> logger) : BackgroundService
     {
-        private readonly ILogger<GeographicPortWorker> _logger;
-
-        public GeographicPortWorker(ILogger<GeographicPortWorker> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<GeographicPortWorker> _logger = logger;
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
