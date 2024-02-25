@@ -1,4 +1,4 @@
-namespace NP.WKR.PortOrderReader
+namespace NP.WKR.PortOrderBase
 {
     public class GeographicPortWorker(ILogger<GeographicPortWorker> logger) : BackgroundService
     {

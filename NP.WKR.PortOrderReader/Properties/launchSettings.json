@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "NP.WKR.PortOrderReader": {
+    "NP.WKR.PortOrderBase": {
       "commandName": "Project",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"

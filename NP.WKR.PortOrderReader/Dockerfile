@@ -7,17 +7,17 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["NP.WKR.PortOrderReader/NP.WKR.PortOrderReader.csproj", "NP.WKR.PortOrderReader/"]
-RUN dotnet restore "./NP.WKR.PortOrderReader/NP.WKR.PortOrderReader.csproj"
+COPY ["NP.WKR.PortOrderBase/NP.WKR.PortOrderBase.csproj", "NP.WKR.PortOrderBase/"]
+RUN dotnet restore "./NP.WKR.PortOrderBase/NP.WKR.PortOrderBase.csproj"
 COPY . .
-WORKDIR "/src/NP.WKR.PortOrderReader"
-RUN dotnet build "./NP.WKR.PortOrderReader.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/NP.WKR.PortOrderBase"
+RUN dotnet build "./NP.WKR.PortOrderBase.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./NP.WKR.PortOrderReader.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./NP.WKR.PortOrderBase.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "NP.WKR.PortOrderReader.dll"]
+ENTRYPOINT ["dotnet", "NP.WKR.PortOrderBase.dll"]
