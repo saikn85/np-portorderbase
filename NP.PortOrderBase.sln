@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9CEA2F43-BBB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NP.WKR.PortOrderBase", "src\NP.WKR.PortOrderBase\NP.WKR.PortOrderBase.csproj", "{3D03538F-AEA1-497F-A78E-D4FA2916775C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NP.WKR.PortOrderBaseService", "src\NP.WKR.PortOrderBaseService\NP.WKR.PortOrderBaseService.csproj", "{B5D82900-29FC-4D51-BA41-176F1AA8D33B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NP.WKR.PortOrderBase.Service", "src\NP.WKR.PortOrderBaseService\NP.WKR.PortOrderBase.Service.csproj", "{B5D82900-29FC-4D51-BA41-176F1AA8D33B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NP.WKR.PortOrderBase.Models", "src\NP.WKR.PortOrderBaseModels\NP.WKR.PortOrderBase.Models.csproj", "{46C40B7C-F9ED-45F7-9A43-BBACDD130A95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,15 +25,20 @@ Global
 		{B5D82900-29FC-4D51-BA41-176F1AA8D33B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5D82900-29FC-4D51-BA41-176F1AA8D33B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5D82900-29FC-4D51-BA41-176F1AA8D33B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C40B7C-F9ED-45F7-9A43-BBACDD130A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C40B7C-F9ED-45F7-9A43-BBACDD130A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C40B7C-F9ED-45F7-9A43-BBACDD130A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C40B7C-F9ED-45F7-9A43-BBACDD130A95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1024BDB4-6C4C-473A-A647-A1A2C63C5534}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3D03538F-AEA1-497F-A78E-D4FA2916775C} = {9CEA2F43-BBB5-4B20-8B0F-6AD5D6482FB2}
 		{B5D82900-29FC-4D51-BA41-176F1AA8D33B} = {9CEA2F43-BBB5-4B20-8B0F-6AD5D6482FB2}
+		{46C40B7C-F9ED-45F7-9A43-BBACDD130A95} = {9CEA2F43-BBB5-4B20-8B0F-6AD5D6482FB2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1024BDB4-6C4C-473A-A647-A1A2C63C5534}
 	EndGlobalSection
 EndGlobal
