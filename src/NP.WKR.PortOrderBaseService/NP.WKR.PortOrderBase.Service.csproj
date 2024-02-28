@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NP.WKR.PortOrderBaseModels\NP.WKR.PortOrderBase.Models.csproj" />
+  </ItemGroup>
+
 </Project>
