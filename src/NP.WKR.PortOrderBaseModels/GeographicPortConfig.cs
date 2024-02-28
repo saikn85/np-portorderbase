@@ -3,7 +3,7 @@
 namespace NP.WKR.PortOrderBase.Models
 {
     /// <summary>
-    /// 
+    /// Geographic port - configuration structure
     /// </summary>
     public sealed class GeographicPortConfig
     {
