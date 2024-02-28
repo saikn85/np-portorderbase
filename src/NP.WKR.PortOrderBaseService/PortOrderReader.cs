@@ -1,5 +1,4 @@
-﻿
-namespace NP.WKR.PortOrderBase.Service.Interfaces;
+﻿namespace NP.WKR.PortOrderBase.Service.Interfaces;
 
 public class PortOrderReader : IPortOrderReader
 {
