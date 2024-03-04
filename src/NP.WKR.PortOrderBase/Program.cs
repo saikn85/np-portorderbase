@@ -12,7 +12,6 @@ builder.Logging.ClearProviders();
 builder.Services.AddLogging(logBuilder =>
 {
     logBuilder.AddJsonConsole();
-    logBuilder.SetMinimumLevel(LogLevel.Information);
 });
 
 builder.Services.AddHostedService<GeographicPortWorker>();
