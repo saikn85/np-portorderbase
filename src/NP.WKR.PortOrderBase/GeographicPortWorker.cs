@@ -19,7 +19,8 @@ public class GeographicPortWorker(IConfiguration config, IPortOrderReader geoPor
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         int sleepInterval = (_config.GetValue<ushort?>("WRK_SleepInterval") ?? _defautlSleepInterval) * 60000;
-        ConfigCache.Add(ConfigType.Geographic, _config.GetValue<GeographicPortConfig>("GeographicPortConfig"));
+        ConfigCache.Add()
+        ConfigCache.Add(ConfigType.Geographic, _config.GetValue<GeographicPortConfig>("GeographicPortConfig")!);
         
         while (!stoppingToken.IsCancellationRequested)
         {
