@@ -2,7 +2,7 @@
 
 public class PortOrderReader : IPortOrderReader
 {
-    public async Task ProcessGeoPortsAsync(FileInfo fileInfo)
+    public async Task ProcessGeoPortsAsync(CancellationToken token)
     {
         throw new NotImplementedException();
     }
