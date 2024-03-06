@@ -2,5 +2,5 @@
 
 public interface IPortOrderReader
 {
-    public Task ReadRequestFileAsync(FileInfo fileInfo);
+    public Task ProcessGeoPortsAsync(CancellationToken token);
 }

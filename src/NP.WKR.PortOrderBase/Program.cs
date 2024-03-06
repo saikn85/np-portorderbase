@@ -1,4 +1,5 @@
 using NP.WKR.PortOrderBase;
+using NP.WKR.PortOrderBase.Service;
 
 var builder = Host.CreateApplicationBuilder(args);
 var env = builder.Environment;
@@ -14,6 +15,7 @@ builder.Services.AddLogging(logBuilder =>
     logBuilder.AddJsonConsole();
 });
 
+builder.Services.AddPortOrderServices();
 builder.Services.AddHostedService<GeographicPortWorker>();
 
 var host = builder.Build();

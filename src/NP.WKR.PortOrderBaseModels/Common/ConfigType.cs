@@ -3,7 +3,7 @@
 /// <summary>
 /// Tyoe of Port Orders
 /// </summary>
-public enum PortOrderBaseConfigType
+public enum ConfigType
 {
     /// <summary>
     /// Flag for all Geographic Ports
