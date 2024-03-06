@@ -1,4 +1,5 @@
 ﻿using NP.WKR.PortOrderBase.Models.Common;
+using System.Collections.Concurrent;
 
 namespace NP.WKR.PortOrderBase.Service.Ultities;
 
@@ -7,7 +8,7 @@ namespace NP.WKR.PortOrderBase.Service.Ultities;
 /// </summary>
 public class PortOrderBaseConfigCache
 {
-    private static readonly Dictionary<PortOrderBaseConfigType, object> _cache = [];
+    private static readonly ConcurrentDictionary<PortOrderBaseConfigType, object> _cache = [];
 
     public static void Add(PortOrderBaseConfigType key, object value)
     {
@@ -16,7 +17,7 @@ public class PortOrderBaseConfigCache
 
     public static bool TryGet(PortOrderBaseConfigType key, out object value) => _cache.TryGetValue(key, out value);
 
-    public static void Remove(PortOrderBaseConfigType key) => _cache.Remove(key);
+    public static void TryRemove(PortOrderBaseConfigType key) => _cache.TryRemove(key, out _);
 
     public static void Clear() => _cache.Clear() ;
 }
