@@ -4,6 +4,8 @@ public class PortOrderReader : IPortOrderReader
 {
     public async Task ProcessGeoPortsAsync(CancellationToken token)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Called");
+
+        return;
     }
 }

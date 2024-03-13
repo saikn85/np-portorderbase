@@ -12,6 +12,11 @@ public enum ConfigType : ushort
     /// </summary>
     PortOrderBaseWorkDir = 0,
 
+    /// <summary>
+    /// Flag for Port File Location
+    /// </summary>
+    PortFileLoc = 1,
+
     #endregion
 
     #region Port Config
