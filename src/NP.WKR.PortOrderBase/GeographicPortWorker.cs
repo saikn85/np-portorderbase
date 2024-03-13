@@ -18,14 +18,27 @@ public class GeographicPortWorker(IConfiguration config, IPortOrderReader geoPor
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        int sleepInterval = (_config.GetValue<ushort?>("WRK_SleepInterval") ?? _defautlSleepInterval) * 60000;
-        ConfigCache.Add(ConfigType.PortOrderBaseWorkDir, _config.GetValue<GeographicPortConfig>("PortOrderBaseWorkDir")!);
-        ConfigCache.Add(ConfigType.Geographic, _config.GetValue<GeographicPortConfig>("GeographicPortConfig")!);
-        
-        while (!stoppingToken.IsCancellationRequested)
+        try
         {
-            await _geoPortReader.ProcessGeoPortsAsync(stoppingToken);
-            await Task.Delay(sleepInterval, stoppingToken);
+            int sleepInterval = (_config.GetValue<ushort?>("WRK_SleepInterval") ?? _defautlSleepInterval) * 60000;
+            var workDir = _config.GetValue<GeographicPortConfig>("PortOrderBaseWorkDir") 
+                ?? throw new Exception("Root Directory forr File Processing is NULL!");
+            ConfigCache.Add(ConfigType.PortOrderBaseWorkDir, workDir);
+
+            var geoConfig = _config.GetValue<GeographicPortConfig>("GeographicPortConfig")
+                ?? throw new Exception("Root Directory forr File Processing is NULL!");
+            ConfigCache.Add(ConfigType.Geographic, geoConfig);
+            
+            while (!stoppingToken.IsCancellationRequested)
+            {
+                await _geoPortReader.ProcessGeoPortsAsync(stoppingToken);
+                await Task.Delay(sleepInterval, stoppingToken);
+            }
+        }
+        catch (Exception)
+        {
+            // End the Task
+            return;
         }
     }
 }
