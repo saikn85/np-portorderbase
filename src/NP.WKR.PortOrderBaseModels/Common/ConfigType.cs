@@ -10,40 +10,46 @@ public enum ConfigType : ushort
     /// <summary>
     /// Flag for Root Working Directory
     /// </summary>
-    PortOrderBaseWorkDir = 0,
-
-    /// <summary>
-    /// Flag for Port File Location
-    /// </summary>
-    PortFileLoc = 1,
-
-    #endregion
-
-    #region Port Config
-
-    /// <summary>
-    /// Flag for all Geographic Ports
-    /// </summary>
-    Geographic = 500,
-
-    /// <summary>
-    /// Flag for all Non-Geographic Ports
-    /// </summary>
-    NonGeographic = 501,
+    BaseWorkDirectory = 0,
 
     #endregion
 
     #region Activation Config
 
+    Activations = 1000,
+
     /// <summary>
     /// Flag for all Activations that have XLS or XLSX as file extension
     /// </summary>
-    ActivationExcel = 1000,
+    ActTypeExcel = 1001,
 
     /// <summary>
     /// Flag for all Activations that have csv as file extension
     /// </summary>
-    ActivationCsv = 1001
+    ActTypeCsv = 1002,
+
+    #endregion
+
+    #region Port Config - Geographic
+
+    /// <summary>
+    /// Flag for all Geographic Ports
+    /// </summary>
+    GeoPorts = 2000,
+
+    /// <summary>
+    /// Flag for all Geographic Port Configuration
+    /// </summary>
+    GeoConfig = 2001,
+
+    #endregion
+
+    #region Port Config - Non-Geographic
+
+    /// <summary>
+    /// Flag for all Non-Geographic Ports
+    /// </summary>
+    NonGeographic = 3000,
 
     #endregion
 }

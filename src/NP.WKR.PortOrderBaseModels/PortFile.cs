@@ -7,6 +7,7 @@ namespace NP.WKR.PortOrderBase.Models;
 /// </summary>
 public sealed class PortFile
 {
+    public required string Root { get; set; }
     /// <summary>
     /// Path for all Activation related Port Orders
     /// </summary>

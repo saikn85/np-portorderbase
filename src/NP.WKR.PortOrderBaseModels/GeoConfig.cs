@@ -5,7 +5,7 @@ namespace NP.WKR.PortOrderBase.Models
     /// <summary>
     /// Geographic port - configuration structure
     /// </summary>
-    public sealed class GeographicPortConfig
+    public sealed class GeoConfig
     {
         /// <summary>
         /// Array representing Request Section of the Number Porting Order (NPOR) form
