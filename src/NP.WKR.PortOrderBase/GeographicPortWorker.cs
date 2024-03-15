@@ -6,10 +6,9 @@ using NP.WKR.PortOrderBase.Service.Ultities;
 namespace NP.WKR.PortOrderBase;
 
 /// <summary>
-/// Worker Service that will read a
+/// Geographic Port Worker
 /// </summary>
-/// <param name="logger"></param>
-/// <param name="config"></param>
+/// <param name="config">Configuration Object</param>
 public class GeographicPortWorker(IConfiguration config, IPortOrderReader geoPortReader) : BackgroundService
 {
     private readonly int _defautlSleepInterval = 5;
@@ -21,7 +20,7 @@ public class GeographicPortWorker(IConfiguration config, IPortOrderReader geoPor
         try
         {
             int sleepInterval = (_config.GetValue<ushort?>("WRK_SleepInterval") ?? _defautlSleepInterval) * 60000;
-            var workDir = _config.GetValue<string>("PortOrderBaseWorkDir") 
+            var workDir = _config.GetValue<string>("PortOrderBaseWorkDir")
                 ?? throw new Exception("Root Directory for File Processing is NULL!");
             ConfigCache.Add(ConfigType.BaseWorkDirectory, workDir);
 
