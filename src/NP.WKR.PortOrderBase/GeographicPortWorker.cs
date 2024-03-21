@@ -19,21 +19,18 @@ public class GeographicPortWorker(IConfiguration config, IPortOrderReader geoPor
     {
         try
         {
-            int sleepInterval = (_config.GetValue<ushort?>("WRK_SleepInterval") ?? _defautlSleepInterval) * 60000;
+            int sleepInterval = (_config.GetValue<ushort?>("WRK_SleepInterval") 
+                ?? _defautlSleepInterval) * 60000;
             var workDir = _config.GetValue<string>("PortOrderBaseWorkDir")
                 ?? throw new Exception("Root Directory for File Processing is NULL!");
             ConfigCache.Add(ConfigType.BaseWorkDirectory, workDir);
 
-            var geoPortsLoc = _config
-                .GetSection("PortingConfig")
-                .GetSection("GeoPorts")
-                .Get<PortFile>()
+            var geoPortsLoc = _config.GetSection("PortingConfig")
+                .GetSection("GeoPorts").Get<PortFile>()
                 ?? throw new Exception("Geographic Port File Location is NULL!");
             ConfigCache.Add(ConfigType.GeoPorts, geoPortsLoc);
 
-            var geoConfig = _config
-                .GetSection("GeoConfig")
-                .Get<GeoConfig>()
+            var geoConfig = _config.GetSection("GeoConfig").Get<GeoConfig>()
                 ?? throw new Exception("Geographic Config is NULL!");
             ConfigCache.Add(ConfigType.GeoConfig, geoConfig);
 
