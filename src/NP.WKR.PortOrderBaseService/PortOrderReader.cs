@@ -21,10 +21,10 @@ public class PortOrderReader : IPortOrderReader
         {
             PortFile portFile = ConfigCache.TryGet(ConfigType.GeoPorts, out var geoPorts)
                 ? (geoPorts as PortFile)! // ensures the object is not null
-                : throw new Exception("Failed to get Port File Location(s)");
+                : throw new Exception($"{nameof(ProcessGeoPortsAsync)} Errored: {nameof(ConfigTypeError.GEO_PORT_FILE_ERROR)}");
             string rootDir = ConfigCache.TryGet(ConfigType.BaseWorkDirectory, out var baseDir)
                 ? (baseDir as string)! // ensures the object is not null
-                : throw new Exception("Failed to get Port File Locations");
+                : throw new Exception($"{nameof(ProcessGeoPortsAsync)} Errored: {nameof(ConfigTypeError.BASE_WORK_DIR_ERROR)}");
 
             string reqPath = Path.Combine(
                 rootDir,
@@ -34,8 +34,13 @@ public class PortOrderReader : IPortOrderReader
             string resPath = Path.Combine(
                 rootDir,
                 portFile.Root,
-                nameof(portFile.Requests),
-                nameof(portFile.Requests.Received));
+                nameof(portFile.Responses),
+                nameof(portFile.Responses.Received));
+
+            DirectoryInfo requests = new(reqPath);
+            DirectoryInfo responses = new(resPath);
+
+
         }
         catch (Exception)
         {
