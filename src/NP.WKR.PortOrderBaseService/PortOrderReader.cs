@@ -19,13 +19,23 @@ public class PortOrderReader : IPortOrderReader
     {
         try
         {
-            PortFile loc = ConfigCache.TryGet(ConfigType.GeoPorts, out var geoPorts)
-                ? (geoPorts as PortFile)! // New syntax to that tell us about the object not being null
-                : throw new Exception("Failed to get Port File Locations");
-            string baseDir = ConfigCache.TryGet(ConfigType.BaseWorkDirectory, out var rootDir)
-                ? (rootDir as string)! // New syntax to that tell us about the object not being null
+            PortFile portFile = ConfigCache.TryGet(ConfigType.GeoPorts, out var geoPorts)
+                ? (geoPorts as PortFile)! // ensures the object is not null
+                : throw new Exception("Failed to get Port File Location(s)");
+            string rootDir = ConfigCache.TryGet(ConfigType.BaseWorkDirectory, out var baseDir)
+                ? (baseDir as string)! // ensures the object is not null
                 : throw new Exception("Failed to get Port File Locations");
 
+            string reqPath = Path.Combine(
+                rootDir,
+                portFile.Root,
+                nameof(portFile.Requests),
+                nameof(portFile.Requests.Received));
+            string resPath = Path.Combine(
+                rootDir,
+                portFile.Root,
+                nameof(portFile.Requests),
+                nameof(portFile.Requests.Received));
         }
         catch (Exception)
         {

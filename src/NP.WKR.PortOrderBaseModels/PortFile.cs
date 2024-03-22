@@ -7,14 +7,18 @@ namespace NP.WKR.PortOrderBase.Models;
 /// </summary>
 public sealed class PortFile
 {
-    public required string Root { get; set; }
     /// <summary>
-    /// Path for all Activation related Port Orders
+    /// Root of the Port File Directory
     /// </summary>
-    public PortFileType? Activation { get; set; }
+    public required string Root { get; set; }
+    
+    /// <summary>
+    /// Path for all Port Order Requests
+    /// </summary>
+    public PortFileType? Requests { get; set; }
 
     /// <summary>
-    /// Path for all Number Porting related Port Orders
+    /// Path for all Port Order Responses
     /// </summary>
-    public PortFileType? NumberPortingOrder { get; set; }
+    public PortFileType? Responses { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿namespace NP.WKR.PortOrderBase.Models.PortFileActions;
+﻿namespace NP.WKR.PortOrderBase.Models.PortFileStruct;
 
 /// <summary>
 /// Final Path of the Port Order File(s)

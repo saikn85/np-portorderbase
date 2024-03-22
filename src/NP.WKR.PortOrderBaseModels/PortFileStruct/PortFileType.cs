@@ -1,19 +1,17 @@
-﻿using NP.WKR.PortOrderBase.Models.PortFileActions;
-
-namespace NP.WKR.PortOrderBase.Models.PortFileStruct;
+﻿namespace NP.WKR.PortOrderBase.Models.PortFileStruct;
 
 /// <summary>
-/// Path representing the Port Order File Type
+/// Path repesenting type of Port Order Action
 /// </summary>
 public sealed class PortFileType
 {
     /// <summary>
-    /// Path for all Port Order Requests
+    /// Path for all Port Order Received
     /// </summary>
-    public PortFileTypeState? Requests { get; set; }
-
+    public PortFileState? Received { get; set; }
+    
     /// <summary>
-    /// Path for all Port Order Responses
+    /// Path for all Port Order Sent
     /// </summary>
-    public PortFileTypeState? Responses { get; set; }
+    public PortFileState? Sent { get; set;}
 }
